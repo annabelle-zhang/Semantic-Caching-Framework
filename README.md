@@ -78,15 +78,16 @@ For the custom queries, the code outputs if the questions you input are a cache 
 
 I decided to set the similarity threshold selection at 0.85 based off of testing. Even when the prompt is the exact same, similarity sometimes only registers a little bit above 0.85:
 The text below is an output of my code.
-        Query 1: What is the impact of climate change on corn yields?
-        Cache Hit: False
-        Latency: 14506.74ms
+        
+            Query 1: What is the impact of climate change on corn yields?
+            Cache Hit: False
+            Latency: 14506.74ms
 
-        Query 2: What is the impact of climate change on corn yields?
-        Cache Hit: True
-        Similarity: 0.8593
-        Latency: 313.54ms
-        Speedup: 46.27x
+            Query 2: What is the impact of climate change on corn yields?
+            Cache Hit: True
+            Similarity: 0.8593
+            Latency: 313.54ms
+            Speedup: 46.27x
 
 
 I have a context window (that I've set to 4) to determine how many queries the AI should observe in advance for context. I think that most queries are likely to be resolved wtihin 3-4 exchanges, so that's a good number. However, if the conversations are very complex, the window should be increased, and if conversations don't need much context, the window can be decreased. I decided to keep it on the smaller end to reduce the noise presented to the AI and prevent the embedding from becoming overwhelmed with old content. 
